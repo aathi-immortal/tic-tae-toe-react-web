@@ -27,7 +27,7 @@ function App()
       let socket;
     const connect = ()=>
     {
-        socket = io("https://tic-toe123.azurewebsites.net/app");
+        socket = io("https://tic-toe123.azurewebsites.net/app/game");
     }    
     useEffect(()=>
     { 
