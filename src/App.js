@@ -24,22 +24,7 @@ function App()
       [0, 4, 8],
       [2, 4, 6]
     ]
-      let socket;
-    const connect = ()=>
-    {
-        socket = io("https://tic-toe123.azurewebsites.net/app/game");
-    }    
-    useEffect(()=>
-    { 
-      connect();
-        console.log(socket);
-    socket.on("connect",()=>
-    {
-      console.log("ji");
-    })
-
-    },[])
-    
+        const socket = io("https://tic-toe123.azurewebsites.net/app/game");
     const checkWinner = () => {
       
       for (let i = 0; i < WIN_CONDITIONS.length; i++) {
