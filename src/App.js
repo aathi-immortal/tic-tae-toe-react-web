@@ -32,12 +32,14 @@ function App()
     useEffect(()=>
     { 
       connect();
-    },[])
-    
+        console.log(socket);
     socket.on("connect",()=>
     {
       console.log("ji");
     })
+
+    },[])
+    
     const checkWinner = () => {
       
       for (let i = 0; i < WIN_CONDITIONS.length; i++) {
