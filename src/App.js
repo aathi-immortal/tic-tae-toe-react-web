@@ -37,7 +37,7 @@ function App()
     useEffect(()=>
     {
         connectToWebSocket(); 
-    })
+    },[]);
     const checkWinner = () => {
       
       for (let i = 0; i < WIN_CONDITIONS.length; i++) {
