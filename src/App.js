@@ -2,7 +2,8 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 
-
+import SockJS from 'sockjs-client'; // Import SockJS
+import { Client } from '@stomp/stompjs'; // Import Stomp
 
 import { Board } from "./New-day-1/Board";
 import { ScoreBoard } from "./New-day-1/ScoreBoard";
@@ -24,7 +25,19 @@ function App()
       [0, 4, 8],
       [2, 4, 6]
     ]
-      
+    const connectToWebSocket = () => {
+      const socket = new SockJS('https://tic-toe123.azurewebsites.net/game'); // Replace with your WebSocket server URL
+      const stompClient = new Client({
+        webSocketFactory: () => socket,
+        debug: (str) => console.log(str),
+      });
+    
+      stompClient.activate();
+    }
+    useEffect(()=>
+    {
+        connectToWebSocket(); 
+    })
     const checkWinner = () => {
       
       for (let i = 0; i < WIN_CONDITIONS.length; i++) {
@@ -136,3 +149,5 @@ function App()
 }
 
 export default App;
+
+
