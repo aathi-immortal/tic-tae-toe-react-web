@@ -1,0 +1,21 @@
+.box {
+    background-color: #ffffff;
+    border: none;
+    border-radius: 10%;
+    box-shadow: rgba(121, 121, 154, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    width: 5rem;
+    height: 5rem;
+    text-align: center;
+    font-size: 5em;
+    font-family: "Fredoka", sans-serif;
+    font-weight: bold;
+    line-height: 5rem;
+    margin: 0.5rem;
+    
+  }
+  
+   
+  .x
+  {
+    color:red ;
+  }
