@@ -46,12 +46,15 @@ class WebSocketService {
       console.log("sorry");
     }
   };
-
+  onMessage(message)
+  {
+      document.dispatchEvent(new Event("newBoard",{message:message}));
+  }
   subscribe(destination)
   {
     this.stompClient.subscribe(destination,(message)=>
     {
-      console.log(message);
+      this.onMessage(message);
     })
   }
   // Don't forget to disconnect the S TOMP connection when needed

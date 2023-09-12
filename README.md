@@ -68,3 +68,14 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+today i face a problem : how to send the data from js file to react
+Here is my solution :
+document.dispatchEvent(new Event('dataReady', { detail: dataFromJS }));
+document: This refers to the global document object in the browser's Document Object Model (DOM). It represents the entire HTML document and provides methods and properties to interact with the document.
+
+dispatchEvent(...): This is a method provided by the document object that allows you to dispatch (fire) custom events. Custom events are a way to create and handle your own events in JavaScript. They can be used to signal that something specific has occurred in your application.
+
+new Event('dataReady', { detail: dataFromJS }): This part is creating a new custom event named 'dataReady'. Here's what each part of this event creation means:
+
+'dataReady': This is the name of the custom event. You can choose any name you like, but it's a good practice to use a descriptive name that reflects the purpose of the event.

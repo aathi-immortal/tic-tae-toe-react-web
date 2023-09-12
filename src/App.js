@@ -101,7 +101,13 @@ function App()
     {
       setChance(chance == "x" ? "o" :"x")
     }
-
+    function sendUpdateBoard()
+    {
+      let message = new Message();
+            message.setRoomId(123);
+            message.setMessageContent(board);
+            socketService.sendMessage(message);
+    }
     function handleButtonClick(butonIndex)
     {
       
@@ -109,11 +115,8 @@ function App()
       {
           // return value = (index == butonIndex && value == null) ? chance:value;
           if(index == butonIndex && value == null)
-          
           {
-            let message = new Message();
-            message.setRoomId(123);
-            socketService.sendMessage(message);
+            
             setEmptyBlock(emptyBlock - 1);
             return chance;
           }
@@ -122,11 +125,15 @@ function App()
       setBoard(newBoard);
       
     }
+    document.addEventListener("newBoard",(event)=>
+    {
+      console.log(event.message);
+    })
     useEffect(()=>
     { 
       
        
-        
+        sendUpdateBoard()
       swapChance();
       
       console.log(emptyBlock);
